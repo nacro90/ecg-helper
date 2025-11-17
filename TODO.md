@@ -88,50 +88,50 @@
 
 ### 8. Image Capture Integration
 
-- [ ] Install Expo Image Picker and Camera dependencies
-- [ ] Create camera capture screen/modal
-- [ ] Implement photo library/gallery access
-- [ ] Add image preview component with zoom capability
-- [ ] Create image quality validation (resolution, clarity checks)
-- [ ] Implement image rotation and basic adjustments
-- [ ] Add retake/reselect functionality
-- [ ] Store captured/selected images with case data
+- [x] Install Expo Image Picker and Camera dependencies
+- [x] Create camera capture screen/modal
+- [x] Implement photo library/gallery access
+- [x] Add image preview component with zoom capability
+- [x] Create image quality validation (resolution, clarity checks)
+- [x] Implement image rotation and basic adjustments
+- [x] Add retake/reselect functionality
+- [x] Store captured/selected images with case data
 - [ ] Display attached ECG image in case history
-- [ ] Handle image permissions (camera, photo library)
+- [x] Handle image permissions (camera, photo library)
 
 ### 9. Data Entry UI Components
 
-- [ ] Create lead input component (reusable for all 12 leads)
-- [ ] Build polarity selector (positive/negative/isoelectric)
-- [ ] Create QRS duration input component with validation (>120 ms)
-- [ ] Build transition point selector (V1-V6)
-- [ ] Create bundle branch block pattern selector (RBBB/LBBB)
-- [ ] Design overall data entry layout (scrollable, organized by lead groups)
+- [x] Create lead input component (reusable for all 12 leads)
+- [x] Build polarity selector (positive/negative/isoelectric)
+- [x] Create QRS duration input component with validation (>120 ms)
+- [x] Build transition point selector (V1-V6)
+- [x] Create bundle branch block pattern selector (RBBB/LBBB)
+- [x] Design overall data entry layout (scrollable, organized by lead groups)
 
 ### 10. Lead Organization & Display
 
-- [ ] Group leads visually (Limb: I, II, III, aVR, aVL, aVF)
-- [ ] Group precordial leads (V1-V6)
-- [ ] Add lead labels and descriptions
+- [x] Group leads visually (Limb: I, II, III, aVR, aVL, aVF)
+- [x] Group precordial leads (V1-V6)
+- [x] Add lead labels and descriptions
 - [ ] Create visual ECG lead diagram/reference
 - [ ] Implement collapsible sections for lead groups
-- [ ] Add "quick view" summary of entered data
+- [x] Add "quick view" summary of entered data
 
 ### 11. Input Validation & Quality Checks
 
-- [ ] Implement real-time validation for each field
-- [ ] Add completeness indicator (X/12 leads entered)
-- [ ] Create validation rules for QRS duration ranges
-- [ ] Add QRS duration >120 ms requirement check
-- [ ] Add warnings for unusual/suspicious values
+- [x] Implement real-time validation for each field
+- [x] Add completeness indicator (X/12 leads entered)
+- [x] Create validation rules for QRS duration ranges
+- [x] Add QRS duration >120 ms requirement check
+- [x] Add warnings for unusual/suspicious values
 - [ ] Implement "required fields" highlighting
-- [ ] Create validation error messages and tooltips
+- [x] Create validation error messages and tooltips
 
 ### 12. Data Entry Features
 
-- [ ] Implement save draft functionality
+- [x] Implement save draft functionality
 - [ ] Add clear/reset form capability
-- [ ] Create auto-save mechanism (save to local storage)
+- [x] Create auto-save mechanism (save to local storage)
 - [ ] Add confirmation dialog for data clearing
 - [ ] Implement data export for backup (JSON)
 - [ ] Add data import from backup file

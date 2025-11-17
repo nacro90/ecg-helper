@@ -29,6 +29,10 @@ export interface SavedCase {
   // ECG data
   ecgData: ECGData;
 
+  // ECG image (optional)
+  imageUri?: string;
+  imageCapturedAt?: Date;
+
   // Analysis results
   analysisResult: AnalysisResult;
 

@@ -12,12 +12,17 @@ interface ECGStore {
   // Current ECG data
   ecgData: Partial<ECGData> | null;
 
+  // Image data
+  imageUri: string | null;
+  imageCapturedAt: Date | null;
+
   // Actions
   setLeadPolarity: (lead: LeadName, polarity: Polarity) => void;
   setQRSDuration: (duration: number) => void;
   setBBBPattern: (pattern: BundleBranchBlockPattern) => void;
   setTransitionPoint: (point: string) => void;
   setNotes: (notes: string) => void;
+  setImageUri: (uri: string | null) => void;
   clearECGData: () => void;
   loadDraft: () => void;
   saveDraft: () => void;
@@ -27,6 +32,8 @@ export const useECGStore = create<ECGStore>()(
   persist(
     (set, get) => ({
       ecgData: null,
+      imageUri: null,
+      imageCapturedAt: null,
 
       setLeadPolarity: (lead, polarity) => {
         set(state => ({
@@ -79,8 +86,15 @@ export const useECGStore = create<ECGStore>()(
         }));
       },
 
+      setImageUri: uri => {
+        set({
+          imageUri: uri,
+          imageCapturedAt: uri ? new Date() : null,
+        });
+      },
+
       clearECGData: () => {
-        set({ ecgData: null });
+        set({ ecgData: null, imageUri: null, imageCapturedAt: null });
       },
 
       loadDraft: () => {
