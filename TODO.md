@@ -124,17 +124,17 @@
 - [x] Create validation rules for QRS duration ranges
 - [x] Add QRS duration >120 ms requirement check
 - [x] Add warnings for unusual/suspicious values
-- [ ] Implement "required fields" highlighting
+- [x] Implement "required fields" highlighting
 - [x] Create validation error messages and tooltips
 
 ### 12. Data Entry Features
 
 - [x] Implement save draft functionality
-- [ ] Add clear/reset form capability
+- [x] Add clear/reset form capability
 - [x] Create auto-save mechanism (save to local storage)
-- [ ] Add confirmation dialog for data clearing
-- [ ] Implement data export for backup (JSON)
-- [ ] Add data import from backup file
+- [x] Add confirmation dialog for data clearing
+- [x] Implement data export for backup (JSON)
+- [x] Add data import from backup file
 
 ---
 
