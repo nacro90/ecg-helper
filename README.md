@@ -1,50 +1,193 @@
-# Welcome to your Expo app 👋
+# EKG Helper - ECG Origin Localization Application
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A clinical decision support application for cardiac electrophysiologists to identify the anatomical origin of idiopathic ventricular arrhythmias using 12-lead ECG analysis.
 
-## Get started
+## Overview
 
-1. Install dependencies
+EKG Helper provides a systematic, step-by-step workflow to analyze ECG patterns and predict the anatomical origin of ventricular arrhythmias. The app guides clinicians through:
+
+1. **QRS Duration Screening**: Initial assessment (>120 ms requirement)
+2. **Vertical Axis Determination**: Analysis of leads II, III, and aVF
+3. **Horizontal Axis Determination**: Analysis of lead I and BBB pattern
+4. **Quadrant Assignment**: Localization to one of four anatomical quadrants
+5. **Refined Localization**: Detailed site prediction with confidence levels
+6. **Results & Differential Diagnosis**: Primary site with alternatives
+
+## Features
+
+### Phase 1 (MVP - Current)
+
+- ✅ Manual 12-lead ECG data entry
+- ✅ Step-by-step guided analysis workflow
+- ✅ Pattern matching for 15-20 common anatomical sites
+- ✅ Confidence level indicators (High/Moderate/Low)
+- ✅ Differential diagnoses with supporting evidence
+- ✅ Case saving and history management
+- ✅ Clinical implications and ablation approach recommendations
+
+### Phase 2 (Planned)
+
+- 📋 Image and PDF upload with OCR
+- 📋 Teaching mode with educational content
+- 📋 Enhanced 3D anatomical visualizations
+- 📋 Advanced reporting and export features
+
+### Phase 3 (Future)
+
+- 📋 EMR system integration
+- 📋 Outcome tracking
+- 📋 Multi-institutional case sharing
+
+## Tech Stack
+
+- **Framework**: React Native 0.81 + Expo
+- **Language**: TypeScript (strict mode)
+- **Navigation**: React Navigation v7 + Expo Router
+- **State Management**: Zustand
+- **UI Library**: React Native Paper
+- **Forms**: React Hook Form
+- **Validation**: Zod
+- **Database**: Expo SQLite
+- **Storage**: AsyncStorage
+
+## Prerequisites
+
+- Node.js >= 20.16.0 (recommended: 20.19.4+)
+- npm >= 10.2.4
+- iOS Simulator (for iOS development)
+- Android Studio + Android Emulator (for Android development)
+- Expo CLI
+
+## Installation
+
+1. **Clone the repository**
+
+   ```bash
+   git clone <repository-url>
+   cd ekg-helper
+   ```
+
+2. **Install dependencies**
 
    ```bash
    npm install
    ```
 
-2. Start the app
+3. **Start the development server**
 
    ```bash
-   npx expo start
+   npm start
    ```
 
-In the output, you'll find options to open the app in a
+4. **Run on a platform**
+   - iOS: `npm run ios`
+   - Android: `npm run android`
+   - Web: `npm run web`
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+## Development Scripts
 
 ```bash
+# Start Expo development server
+npm start
+
+# Run on specific platforms
+npm run ios
+npm run android
+npm run web
+
+# Code quality
+npm run lint              # Run ESLint
+npm run format            # Format code with Prettier
+npm run format:check      # Check code formatting
+npm run type-check        # Run TypeScript type checking
+
+# Testing
+npm test                  # Run Jest tests
+
+# Reset project (remove example code)
 npm run reset-project
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## Project Structure
 
-## Learn more
+```
+ekg-helper/
+├── app/                          # Expo Router screens (file-based routing)
+│   ├── (tabs)/                   # Tab-based navigation
+│   └── _layout.tsx               # Root layout
+├── src/
+│   ├── features/                 # Feature-based modules
+│   │   ├── ecg-data-entry/       # ECG data input screens & components
+│   │   ├── analysis-workflow/    # Step-by-step analysis screens
+│   │   ├── results/              # Results display & visualization
+│   │   └── case-history/         # Case management & history
+│   ├── shared/                   # Shared resources
+│   │   ├── components/           # Reusable UI components
+│   │   ├── hooks/                # Custom React hooks
+│   │   ├── types/                # TypeScript type definitions
+│   │   ├── theme/                # Design system (colors, typography, spacing)
+│   │   ├── utils/                # Utility functions
+│   │   └── constants/            # App constants
+│   ├── store/                    # Zustand state management
+│   └── services/                 # Business logic services
+│       ├── database/             # SQLite database operations
+│       ├── pattern-matching/     # ECG pattern matching algorithms
+│       └── validation/           # Data validation logic
+├── assets/                       # Images, fonts, icons
+└── components/                   # Legacy components (to be migrated)
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+## Core Data Models
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+### ECG Data
 
-## Join the community
+- 12-lead ECG with polarity data (I, II, III, aVR, aVL, aVF, V1-V6)
+- QRS duration measurements
+- Bundle branch block patterns
+- Precordial transition points
 
-Join our community of developers creating universal apps.
+### Analysis Results
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- QRS screening results
+- Vertical/horizontal axis determinations
+- Quadrant assignments
+- Refined localization predictions
+- Confidence levels and supporting evidence
+
+### Anatomical Sites
+
+- 15-20 common ventricular arrhythmia origins
+- Organized by quadrants (Right/Left Upper/Lower)
+- Clinical implications for each site
+
+## Design System
+
+The app uses a consistent design system defined in `src/shared/theme/`:
+
+- **Colors**: Medical-focused color palette with confidence level indicators
+- **Typography**: Clear, accessible text styles
+- **Spacing**: 4px grid-based spacing system
+- **Shadows**: Elevation levels for depth perception
+
+## Contributing
+
+1. Follow the existing code style (enforced by ESLint + Prettier)
+2. Write TypeScript with strict mode enabled
+3. Add unit tests for business logic
+4. Update documentation for significant changes
+
+## Clinical Validation
+
+This application is a **clinical decision support tool** and should not replace clinical judgment. All predictions include confidence levels and should be validated against actual clinical findings.
+
+## License
+
+[To be determined]
+
+## Contact
+
+For questions, issues, or feedback, please contact the development team.
+
+## Acknowledgments
+
+Based on published ECG criteria for ventricular arrhythmia localization from the electrophysiology literature.
