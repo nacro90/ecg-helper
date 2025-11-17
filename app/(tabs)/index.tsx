@@ -14,13 +14,6 @@ export default function HomeScreen() {
   return (
     <ScrollView style={styles.container}>
       <View style={styles.content}>
-        <Text variant="headlineLarge" style={styles.title}>
-          EKG Helper
-        </Text>
-        <Text variant="bodyLarge" style={styles.subtitle}>
-          ECG Origin Localization Assistant
-        </Text>
-
         <Card padding="lg" style={styles.card}>
           <Text variant="titleMedium" style={styles.cardTitle}>
             Start New Analysis
@@ -73,15 +66,6 @@ const styles = StyleSheet.create({
   },
   content: {
     padding: spacing.lg,
-  },
-  title: {
-    fontWeight: 'bold',
-    color: colors.primary.main,
-    marginBottom: spacing.xs,
-  },
-  subtitle: {
-    color: colors.text.secondary,
-    marginBottom: spacing.xl,
   },
   card: {
     marginBottom: spacing.md,

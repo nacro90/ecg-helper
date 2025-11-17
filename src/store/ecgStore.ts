@@ -26,6 +26,8 @@ interface ECGStore {
   clearECGData: () => void;
   loadDraft: () => void;
   saveDraft: () => void;
+  exportData: () => string;
+  importData: (jsonString: string) => boolean;
 }
 
 export const useECGStore = create<ECGStore>()(
@@ -103,6 +105,43 @@ export const useECGStore = create<ECGStore>()(
 
       saveDraft: () => {
         // Draft is automatically saved by persist middleware
+      },
+
+      exportData: () => {
+        const state = get();
+        const exportObject = {
+          ecgData: state.ecgData,
+          imageUri: state.imageUri,
+          imageCapturedAt: state.imageCapturedAt,
+          exportedAt: new Date().toISOString(),
+          version: '1.0',
+        };
+        return JSON.stringify(exportObject, null, 2);
+      },
+
+      importData: (jsonString: string) => {
+        try {
+          const importedData = JSON.parse(jsonString);
+
+          // Validate the imported data structure
+          if (!importedData || typeof importedData !== 'object') {
+            return false;
+          }
+
+          // Import the data
+          set({
+            ecgData: importedData.ecgData || null,
+            imageUri: importedData.imageUri || null,
+            imageCapturedAt: importedData.imageCapturedAt
+              ? new Date(importedData.imageCapturedAt)
+              : null,
+          });
+
+          return true;
+        } catch (error) {
+          console.error('Failed to import ECG data:', error);
+          return false;
+        }
       },
     }),
     {

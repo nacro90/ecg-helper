@@ -16,6 +16,8 @@ export interface LeadInputProps {
   onPolarityChange: (polarity: Polarity) => void;
   disabled?: boolean;
   showDescription?: boolean;
+  required?: boolean;
+  showRequiredIndicator?: boolean;
 }
 
 const LEAD_DESCRIPTIONS: Record<LeadName, string> = {
@@ -39,13 +41,29 @@ export const LeadInput: React.FC<LeadInputProps> = ({
   onPolarityChange,
   disabled = false,
   showDescription = false,
+  required = false,
+  showRequiredIndicator = false,
 }) => {
+  const isFieldRequired = required && polarity === null && showRequiredIndicator;
+
   return (
-    <View style={styles.container}>
+    <View
+      style={[
+        styles.container,
+        isFieldRequired && styles.requiredContainer,
+      ]}
+    >
       <View style={styles.labelContainer}>
-        <Text variant="titleMedium" style={styles.leadLabel}>
-          {lead}
-        </Text>
+        <View style={styles.leadLabelRow}>
+          <Text variant="titleMedium" style={styles.leadLabel}>
+            {lead}
+          </Text>
+          {isFieldRequired && (
+            <Text variant="labelSmall" style={styles.requiredText}>
+              Required
+            </Text>
+          )}
+        </View>
         {showDescription && (
           <Text variant="bodySmall" style={styles.description}>
             {LEAD_DESCRIPTIONS[lead]}
@@ -74,13 +92,27 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: colors.border.main,
   },
+  requiredContainer: {
+    borderColor: colors.status.warning,
+    borderWidth: 2,
+    backgroundColor: colors.status.warning + '10',
+  },
   labelContainer: {
     flex: 1,
     marginRight: spacing.md,
   },
+  leadLabelRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.xs,
+  },
   leadLabel: {
     fontWeight: 'bold',
     color: colors.text.primary,
+  },
+  requiredText: {
+    color: colors.status.warning,
+    fontWeight: 'bold',
   },
   description: {
     color: colors.text.secondary,
