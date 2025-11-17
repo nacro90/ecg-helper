@@ -84,9 +84,22 @@
 
 ---
 
-## Week 3: ECG Data Entry Screen
+## Week 3: ECG Image Capture & Data Entry
 
-### 8. Data Entry UI Components
+### 8. Image Capture Integration
+
+- [ ] Install Expo Image Picker and Camera dependencies
+- [ ] Create camera capture screen/modal
+- [ ] Implement photo library/gallery access
+- [ ] Add image preview component with zoom capability
+- [ ] Create image quality validation (resolution, clarity checks)
+- [ ] Implement image rotation and basic adjustments
+- [ ] Add retake/reselect functionality
+- [ ] Store captured/selected images with case data
+- [ ] Display attached ECG image in case history
+- [ ] Handle image permissions (camera, photo library)
+
+### 9. Data Entry UI Components
 
 - [ ] Create lead input component (reusable for all 12 leads)
 - [ ] Build polarity selector (positive/negative/isoelectric)
@@ -95,7 +108,7 @@
 - [ ] Create bundle branch block pattern selector (RBBB/LBBB)
 - [ ] Design overall data entry layout (scrollable, organized by lead groups)
 
-### 9. Lead Organization & Display
+### 10. Lead Organization & Display
 
 - [ ] Group leads visually (Limb: I, II, III, aVR, aVL, aVF)
 - [ ] Group precordial leads (V1-V6)
@@ -104,7 +117,7 @@
 - [ ] Implement collapsible sections for lead groups
 - [ ] Add "quick view" summary of entered data
 
-### 10. Input Validation & Quality Checks
+### 11. Input Validation & Quality Checks
 
 - [ ] Implement real-time validation for each field
 - [ ] Add completeness indicator (X/12 leads entered)
@@ -114,7 +127,7 @@
 - [ ] Implement "required fields" highlighting
 - [ ] Create validation error messages and tooltips
 
-### 11. Data Entry Features
+### 12. Data Entry Features
 
 - [ ] Implement save draft functionality
 - [ ] Add clear/reset form capability
@@ -127,7 +140,7 @@
 
 ## Week 4: Pattern Matching Engine
 
-### 12. Clinical Rules Implementation
+### 13. Clinical Rules Implementation
 
 - [ ] Research and document 15-20 most common anatomical sites
 - [ ] Create data structure for pattern matching rules
@@ -137,7 +150,7 @@
 - [ ] Create quadrant assignment algorithm
 - [ ] Implement bundle branch block pattern recognition
 
-### 13. Anatomical Site Patterns
+### 14. Anatomical Site Patterns
 
 - [ ] Define patterns for RVOT sites (anterior, posterior)
 - [ ] Define patterns for LVOT sites

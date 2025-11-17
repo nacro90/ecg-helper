@@ -20,7 +20,11 @@ This roadmap outlines the development phases for the EKG Origin Localization App
 
 #### 1. ECG Data Entry Screen
 
-- Manual input interface for 12-lead ECG measurements
+- **Image capture from camera or gallery** (primary input method)
+- Camera integration for real-time ECG image capture
+- Gallery/photo library access for existing ECG images
+- Image preview and confirmation before processing
+- Manual input interface for 12-lead ECG measurements (fallback/supplement)
 - Lead-by-lead data collection (I, II, III, aVR, aVL, aVF, V1-V6)
 - Input validation and quality checks
 - Visual feedback for data completeness
@@ -61,13 +65,13 @@ This roadmap outlines the development phases for the EKG Origin Localization App
 
 ## Phase 2: Enhanced Usability (4-6 weeks)
 
-### Visual Input Methods
+### Advanced Image Processing
 
-- Camera integration for ECG image capture
-- Image preprocessing and enhancement
+- Image preprocessing and enhancement (contrast, brightness, rotation)
 - OCR/Computer vision for automated measurement extraction
 - PDF import and parsing functionality
 - Validation interface for auto-extracted measurements
+- Batch processing of multiple ECG images
 
 ### Improved UX
 
@@ -155,10 +159,10 @@ This roadmap outlines the development phases for the EKG Origin Localization App
 
 ### Media & Input
 
-- **Camera**: React Native Camera or Expo Camera
-- **Image Processing**: React Native Image Picker
-- **OCR**: Google ML Kit or Tesseract.js
-- **PDF**: react-native-pdf or pdf-lib
+- **Camera**: Expo Camera or Expo Image Picker (Phase 1)
+- **Image Processing**: React Native Image Picker, Expo Image Manipulator
+- **OCR**: Google ML Kit or Tesseract.js (Phase 2)
+- **PDF**: react-native-pdf or pdf-lib (Phase 2)
 
 ### Testing
 
@@ -179,16 +183,19 @@ This roadmap outlines the development phases for the EKG Origin Localization App
 
 ### Phase 1 Deliverables
 
+- Camera and gallery image capture for ECG input
+- Image preview and basic quality validation
 - Working stepwise analysis workflow
-- Manual ECG data entry interface
+- Manual ECG data entry interface (fallback)
 - Pattern matching for 15-20 common sites
 - Basic results presentation
-- Case saving and history
+- Case saving and history with image attachments
 - MVP ready for clinical validation testing
 
 ### Phase 2 Deliverables
 
-- Image and PDF input capabilities
+- Advanced image processing (OCR, auto-extraction)
+- PDF import capabilities
 - Teaching mode with educational content
 - Enhanced visualizations
 - Improved UX with animations

@@ -163,10 +163,13 @@ The app incorporates spatial anatomy understanding:
 
 ### Input Formats (in order of preference)
 
-1. **Digital structured data**: Direct device output with amplitude/duration measurements
-2. **PDF with embedded data**: Hospital system exports that retain measurement metadata
-3. **High-quality images**: Scanned ECGs with clear grid lines and waveforms
-4. **Manual entry**: User-guided input of key measurements for each lead
+1. **Camera/Gallery images**: Real-time capture or selection from photo library (Phase 1)
+   - Support for standard ECG printouts
+   - Support for screen captures from ECG devices
+   - Image quality validation
+2. **Manual entry**: User-guided input of key measurements for each lead (Phase 1)
+3. **Digital structured data**: Direct device output with amplitude/duration measurements (Future)
+4. **PDF with embedded data**: Hospital system exports that retain measurement metadata (Phase 2)
 
 ---
 
@@ -176,8 +179,9 @@ The app incorporates spatial anatomy understanding:
 
 **Step 1: Case Initiation**
 
-- User uploads/inputs ECG showing ventricular arrhythmia
-- System validates ECG quality and completeness
+- User captures ECG image using camera or selects from gallery
+- System validates image quality (clarity, orientation, completeness)
+- Alternative: User manually inputs ECG data for all 12 leads
 - User provides minimal clinical context (if relevant to interpretation)
 
 **Step 2: Guided Analysis**
@@ -332,14 +336,18 @@ The app incorporates spatial anatomy understanding:
 
 ### Phase 1: Core Functionality (MVP)
 
+- Camera and gallery integration for ECG image capture
+- Image preview and quality validation
+- Manual ECG data entry interface (fallback/supplement)
 - Quadrant-based stepwise analysis workflow
 - Pattern matching for the 15-20 most common sites of origin
 - Basic results presentation with anatomical diagrams
-- Manual ECG data entry interface
+- Case saving with attached ECG images
 
 ### Phase 2: Enhanced Usability
 
-- Image upload with automated measurement extraction
+- Automated measurement extraction (OCR)
+- Image preprocessing and enhancement tools
 - PDF import with data parsing
 - Enhanced visualization and reporting
 - Teaching mode with case library
